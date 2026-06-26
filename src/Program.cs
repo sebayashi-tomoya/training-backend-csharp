@@ -32,6 +32,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 // --- DI 登録（Repository / Service） ---
 builder.Services.AddScoped<IProductRepository, ProductRepository>();
 builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<ICouponRepository, CouponRepository>();
 builder.Services.AddScoped<IPricingService, PricingService>();
 builder.Services.AddScoped<IOrderService, OrderService>();
 
