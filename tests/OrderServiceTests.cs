@@ -78,6 +78,30 @@ public class OrderServiceTests
     }
 
     [Fact]
+    public async Task CreateAsync_succeeds_when_quantity_equals_stock()
+    {
+        using var db = SeededContext();
+        var service = CreateService(db);
+
+        var request = new CreateOrderRequest
+        {
+            Items = new()
+            {
+                new CreateOrderItemRequest { ProductId = 1, Quantity = 50 }, // ノートを数量ピッタリ
+            }
+        };
+
+        var result = await service.CreateAsync(request);
+
+        // 在庫が0になるまで引かれている
+        Assert.Equal(0, (await db.Products.FindAsync(1))!.Stock);
+
+        // 注文明細が除外されていない
+        Assert.Equal(1, result?.Items.Count);
+
+    }
+
+    [Fact]
     public async Task CreateAsync_applies_coupon()
     {
         using var db = SeededContext();
