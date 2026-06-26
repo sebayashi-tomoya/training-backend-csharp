@@ -41,6 +41,6 @@ public class PricingService : IPricingService
         var withTax = discounted * (1m + TaxRate);
 
         // 円未満は四捨五入（0.5 は切り上げ）
-        return Math.Round(withTax, 0, MidpointRounding.AwayFromZero);
+        return Math.Round(withTax, 0, MidpointRounding.ToEven);
     }
 }
