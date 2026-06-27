@@ -10,4 +10,7 @@ public interface IProductRepository
 
     /// <summary>指定 Id の商品をまとめて取得する（注文作成時に複数商品を引くため）</summary>
     Task<List<Product>> GetByIdsAsync(IEnumerable<int> ids);
+
+    /// <summary>商品の変更を永続化する</summary>
+    Task SaveChangesAsync();
 }

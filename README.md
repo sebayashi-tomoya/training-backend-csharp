@@ -99,6 +99,7 @@ tests/                xUnit テスト
 |---|---|---|
 | GET | `/api/products` | 商品一覧 |
 | GET | `/api/products/{id}` | 商品詳細 |
+| PUT | `/api/products/{id}/price` | 商品の価格変更（既存注文には影響しない） |
 | GET | `/api/coupons` | クーポン一覧（コード・割引種別・割引値） |
 | GET | `/api/orders` | 注文一覧（明細・商品名込み） |
 | GET | `/api/orders/{id}` | 注文詳細 |

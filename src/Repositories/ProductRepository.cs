@@ -32,4 +32,9 @@ public class ProductRepository : IProductRepository
             .Where(p => idSet.Contains(p.Id))
             .ToListAsync();
     }
+
+    public async Task SaveChangesAsync()
+    {
+        await _db.SaveChangesAsync();
+    }
 }
