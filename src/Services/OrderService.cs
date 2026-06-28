@@ -141,8 +141,8 @@ public class OrderService : IOrderService
                 i.ProductId,
                 i.Product?.Name ?? string.Empty,
                 i.Quantity,
-                i.UnitPrice,
-                i.UnitPrice * i.Quantity))
+                i.Product?.Price ?? 0m,
+                (i.Product?.Price ?? 0m) * i.Quantity))
             .ToList();
 
         return new OrderDto(
