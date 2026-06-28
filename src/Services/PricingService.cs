@@ -30,8 +30,7 @@ public class PricingService : IPricingService
             _ => subtotal
         };
 
-        // 割引で 0 円未満になっても請求は 0 円までとする
-        return discounted < 0m ? 0m : discounted;
+        return discounted;
     }
 
     public decimal CalculateTotal(IEnumerable<OrderItem> items, Coupon? coupon)
